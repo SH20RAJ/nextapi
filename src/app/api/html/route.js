@@ -1,25 +1,28 @@
-// src/app/api/html/route.js
+import { NextResponse } from "next/server";
 
-import fetch from 'node-fetch';
+let i = async (url) => {
+  let data = await fetch(url || 'https://example.com');
+  data = await data.text();
+  return data;
+}
 
-export default async function handler(req, res) {
-  const url = req.query.url;
+function getParameterByName(name, url = window.location.href) {
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
 
-  if (!url) {
-    return res.status(400).json({ error: 'Missing URL query parameter' });
-  }
+export async function GET(req, res) {
+  const { url: rawUrl } = req;
+  const urlSearchParams = new URLSearchParams(rawUrl.search);
+  const url = getParameterByName("url", rawUrl);
+  console.log(rawUrl);
+  const result = await i(url);
 
-  try {
-    const response = await fetch(url);
-    
-    if (!response.ok) {
-      throw new Error('Failed to fetch website HTML');
-    }
-
-    const html = await response.text();
-    res.status(200).send(html);
-  } catch (error) {
-    console.error('Error fetching website HTML:', error);
-    res.status(500).json({ error: 'Failed to fetch website HTML' });
-  }
+  return new NextResponse(`
+    ${result}
+  `);
 }
