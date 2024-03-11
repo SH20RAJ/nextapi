@@ -7,29 +7,37 @@ const cors = Cors({
 });
 
 let i = async (url) => {
-  let data = await fetch(url || 'https://example.com');
-  data = await data.text();
-  return data;
+  try {
+    const response = await fetch(url || 'https://example.com');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.text();
+    return data;
+  } catch (error) {
+    console.error('Error:', error);
+    throw error;
+  }
 }
 
 function getParameterByName(name, url = window.location.href) {
-  name = name.replace(/\[\\\[\\\]\]/g, '\\\\$&');
-  var regex = new RegExp('\[?&\]' + name + '(=(\[^&#\]\*)|&|#|$)'),
-    results = regex.exec(url);
-  if (!results) return null;
-  if (!results[2]) return '';
-  return decodeURIComponent(results[2].replace(/\\+/g, ' '));
+  const urlObj = new URL(url);
+  return urlObj.searchParams.get(name);
 }
 
 export async function GET(req, res) {
-  await cors(req, res);
+  try {
+    await cors(req, res);
 
-  const { url: rawUrl } = req;
-  const urlSearchParams = new URLSearchParams(rawUrl.search);
-  const url = getParameterByName("url", rawUrl);
-  console.log(rawUrl);
+    const { url: rawUrl } = req;
+    const url = getParameterByName("url", rawUrl);
+    console.log(rawUrl);
 
-  const result = await i(url);
+    const result = await i(url);
 
-  return new NextResponse(`${result}`);
+    return new NextResponse(result, { status: 200 });
+  } catch (error) {
+    console.error('Error:', error);
+    return new NextResponse('An error occurred while processing the request.', { status: 500 });
+  }
 }
