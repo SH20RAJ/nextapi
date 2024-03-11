@@ -1,8 +1,6 @@
+import { NextResponse } from "next/server";
 
-// import type { NextRequest } from "next/server";
-// import { NextResponse } from "next/server";
-
-// export const GET = async (_req: NextRequest) => {
+// export const GET = async () => {
 
 //   const res = await fetch("https://picsum.photos/200/300");
 //   const blob = await res.blob();
@@ -13,3 +11,12 @@
   
 //   return new NextResponse(blob, { status: 200, statusText: "OK", headers });
 // };
+
+export  async function GET(req, res) {
+  const img = await fetch("https://picsum.photos/200/300");
+  const blob = await img.blob();
+  const text = await blob.arrayBuffer();
+  res.setHeader("content-Type", "text/plain");
+  const encoded = Buffer.from(text).toString("base64");
+  res.send(encoded);
+}

@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
+import cors from cors;
 
+cors();
 let i = async (url) => {
   let data = await fetch(url || 'https://example.com');
   data = await data.text();
