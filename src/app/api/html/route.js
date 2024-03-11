@@ -1,38 +1,40 @@
-import NextResponse from 'next/server';
+import { NextResponse } from "next/server";
+import NextCors from 'nextjs-cors';
+
+const cors = Cors({
+  methods: ['GET'],
+  origin: '*'
+});
+
+let i = async (url) => {
+  let data = await fetch(url || 'https://example.com');
+  data = await data.text();
+  return data;
+}
+
+function getParameterByName(name, url = window.location.href) {
+  name = name.replace(/\[\\\[\\\]\]/g, '\\\\$&');
+  var regex = new RegExp('\[?&\]' + name + '(=(\[^&#\]\*)|&|#|$)'),
+    results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\\+/g, ' '));
+}
 
 export async function GET(req, res) {
-  const url = req.url.searchParams.get('url');
+  await NextCors(req, res, {
+    // Options
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+    origin: '*',
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+ });
 
-  try {
-    const corsResponse = await fetch('https://your-domain.com/api/cors', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
+  const { url: rawUrl } = req;
+  const urlSearchParams = new URLSearchParams(rawUrl.search);
+  const url = getParameterByName("url", rawUrl);
+  console.log(rawUrl);
 
-    const corsData = await corsResponse.json();
+  const result = await i(url);
 
-    if (corsData.status === 'ok') {
-      const htmlResponse = await fetch(`https://whollyapi.vercel.app/api/html?url=${url}`);
-      const htmlData = await htmlResponse.text();
-
-      return new NextResponse(htmlData, {
-        status: 200,
-        headers: {
-          'Content-Type': 'text/html',
-        },
-      });
-    } else {
-      return new NextResponse('An error occurred while processing the request.', {
-        status: 500,
-      });
-    }
-  } catch (error) {
-    console.error(error);
-
-    return new NextResponse('An error occurred while processing the request.', {
-      status: 500,
-    });
-  }
+  return new NextResponse(`${result}`);
 }
