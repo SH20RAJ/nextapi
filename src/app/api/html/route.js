@@ -3,6 +3,7 @@ import Cors from 'cors';
 
 const cors = Cors({
   methods: ['GET'],
+  origin: '*'
 });
 
 let i = async (url) => {
