@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server";
 import NextCors from 'nextjs-cors';
 
-const cors = Cors({
-  methods: ['GET'],
-  origin: '*'
-});
 
 let i = async (url) => {
   let data = await fetch(url || 'https://example.com');
