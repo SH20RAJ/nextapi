@@ -24,5 +24,12 @@ export async function GET(req, res) {
 
   const result = await i(url);
 
-  return new NextResponse(`${result}`);
+  return new NextResponse(result, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    }
+  });
 }
