@@ -1,12 +1,3 @@
-
----
-description: >-
-  WhollyAPI - Providing Free APIs for Developers without CORS Errors For more
-  details, visit our website
----
-
-# 🌎 Home
-
 ## WhollyAPI Documentation
 
 [![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FSH20RAJ%2Fnextapi%2F&countColor=%23263759&style=flat)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2FSH20RAJ%2Fnextapi%2F)
