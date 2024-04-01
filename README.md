@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+---
+description: >-
+  WhollyAPI - Providing Free APIs for Developers without CORS Errors For more
+  details, visit our website
+---
 
-First, run the development server:
+# 🌎 Home
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## WhollyAPI Documentation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Fgithub.com%2FSH20RAJ%2Fnextapi%2F&countColor=%23263759&style=flat)](https://visitorbadge.io/status?path=https%3A%2F%2Fgithub.com%2FSH20RAJ%2Fnextapi%2F)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Welcome to WhollyAPI, your gateway to free APIs for various services and platforms. WhollyAPI aims to provide developers with easy access to different APIs without encountering CORS (Cross-Origin Resource Sharing) errors. Whether you're building web applications, mobile apps, or any other software, WhollyAPI has you covered.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Explore the available APIs such as Jio Saavn, Mediafire, Aptoide, YouTube Tag Generator, Random Images, and Random Quotes. These APIs are designed to help you integrate functionalities into your projects seamlessly.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+> Website :- [https://sh20raj.gitbook.io/whollyapi](https://sh20raj.gitbook.io/whollyapi)
+>
+> GitHub :- [https://github.com/SH20RAJ/whollyapi/](https://github.com/SH20RAJ/whollyapi/tree/main/docs)
+>
+> NextJS Vertion :- https://whollyapi.vercel.app/
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+#### Contribute on GitHub :-
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+{% embed url="https://github.com/SH20RAJ/whollyapi/" %}
+Contribute Here
+{% endembed %}
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### General APIs
+
+#### 🕸️ Websites
+
+* **Jio Saavn**: API for Jio Saavn music service.
+* **Mediafire**: API for interacting with Mediafire cloud storage.
+* **Aptoide**: API for Aptoide app store.
+
+#### 🎼 Music
+
+* **YouTube Tag Generator**: Generate tags for YouTube videos.
+
+#### 🖼️ Media
+
+* **Random Images**: Get random images for placeholder use.
+
+#### 💡 Quotes
+
+* **Random Quotes**: Retrieve random quotes for inspiration.
+
+### APIs Under Development
+
+#### ▶️ Video
+
+* **YouTube**: Access YouTube data and features.
+
+#### 🇸🇴 Social Media
+
+* **Instagram**: Interact with Instagram content.
+
+#### ☁️ Cloud
+
+* **Google Drive**: Manage files and folders on Google Drive.
+
+#### 💎 Stores
+
+* **Play Store**: Retrieve app information from Google Play Store.
+
+#### ⚔️ Messaging
+
+* **Telegram**: Send and receive messages via Telegram.
+
+### Additional Information
+
+* **CORS**: WhollyAPI is designed to eliminate CORS issues, allowing you to seamlessly integrate these APIs into your projects.
+* **Documentation**: For detailed API endpoints, parameters, and usage examples, refer to the [WhollyAPI Documentation](https://sh20raj.gitbook.io/whollyapi/).
+* **Support**: If you have any questions, feedback, or need assistance with any of the APIs, feel free to reach out to our team at support@appspages.online.
+
+### Get Started
+
+Explore the available APIs and check out the [WhollyAPI Documentation](https://sh20raj.gitbook.io/whollyapi/) for more detailed information on endpoints and usage. Start integrating WhollyAPI into your projects today!
+
+Thank you for choosing WhollyAPI!
+
+***
+
+**WhollyAPI** - Providing Free APIs for Developers without CORS Errors For more details, visit our [website](https://wholly-api.appspages.online/)
